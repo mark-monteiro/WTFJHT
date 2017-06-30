@@ -1,11 +1,11 @@
 ---
 layout: default
 ---
-   <!-- Pledge Drive -->
- <!-- {% include pledge3.html %} -->
-            
-<!-- MailChimp -->
-{% include email.html %}
+
+{% unless page.isAmp %}
+  <!-- MailChimp -->
+  {% include email.html %}
+{% endunless %}
 
 <article class="post">
   <h1 class="post-title">
@@ -23,15 +23,15 @@ layout: default
       <a href="https://github.com/mkiser/WTFJHT/commits/master/{{ page.path }}" target="_blank">See revision history</a>
     </small>
   </time>
-<div class="post-content">
-  {{ content | extlinks }}
-</div>
+  <div class="post-content">
+      {{ content | extlinks }}
+  </div>
   <p>
     <small><strong>Subscribe:</strong> <a href="http://eepurl.com/cAiR-b" target="_blank">Get the Daily WTF in your inbox for free</a> 
     </small>
-  </p>  
+  </p>
 
- <!-- Pledge Drive -->
+  <!-- Pledge Drive -->
   {% include pledge.html %}
 
   {% include social.html %}

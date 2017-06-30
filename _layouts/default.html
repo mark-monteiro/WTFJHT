@@ -1,38 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html {% if page.isAmp %}amp{% endif %} lang="en">
   {% include head.html %}
   <body>
     <div class="container content">
-       <nav class="wtf-pagination">
-          <div class="menu">
-            <div><a href="{{ site.baseurl }}/">Home</a> | </div>
-            <div>
-              {% for post in site.posts limit:1 %} 
-              <a href="{{ site.baseurl }}{{ post.url }}">Today</a>{% endfor %} | 
-            </div>
-            <div>
-              {% for post in site.posts limit:1 offset:1 %} <a href="{{ site.baseurl }}{{ post.url }}">Yesterday</a>{% endfor %} | 
-            </div>
-            <div><a href="{{ site.baseurl }}/all/">All</a> | </div>
-              <div><a href="{{ site.baseurl }}/first-100-days/">First 100 Days</a> | </div>
-              <div><a href="{{ site.baseurl }}/guide/internet-security/">Internet Security Guide</a> | </div>
-              <div><a href="{{ site.baseurl }}/subscribe/">Subscribe</a> | </div>
-            <div><a href="{{ site.baseurl }}/membership/">Membership</a></div>
+      <nav class="wtf-pagination">
+        <div class="menu">
+          <div><a href="{{ site.baseurl }}/">Home</a> | </div>
+          <div>
+            {% for post in site.posts limit:1 %} 
+            <a href="{{ site.baseurl }}{{ post.url }}">Today</a>{% endfor %} | 
           </div>
-        </nav>
-      </div>
+          <div>
+            {% for post in site.posts limit:1 offset:1 %} <a href="{{ site.baseurl }}{{ post.url }}">Yesterday</a>{% endfor %} | 
+          </div>
+          <div><a href="{{ site.baseurl }}/all/">All</a> | </div>
+          <div><a href="{{ site.baseurl }}/first-100-days/">First 100 Days</a> | </div>
+          <div><a href="{{ site.baseurl }}/guide/internet-security/">Internet Security Guide</a> | </div>
+          <div><a href="{{ site.baseurl }}/subscribe/">Subscribe</a> | </div>
+          <div><a href="{{ site.baseurl }}/membership/">Membership</a></div>
+        </div>
+      </nav>
+    </div>
 
-      <header class="masthead">
-        <h3 class="masthead-title">
-          <a href="{{ site.baseurl }}/" title="Home">{{ site.title }}</a>
-        </h3>
-        <div class="wtf-tagline">
-          <small>{{ site.tagline }} <br>by <a href="https://twitter.com/matt_kiser">@matt_kiser</a></small>
-          <br> <span class="site-updated">Site updated: <time datetime="{{ site.time | date_to_xmlschema }}">{{ site.time | date: "%-m/%-d/%Y %l:%M %p %Z" }}</time>
-          </span>
-     
-         </div>
+    <header class="masthead">
+      <h3 class="masthead-title">
+        <a href="{{ site.baseurl }}/" title="Home">{{ site.title }}</a>
+      </h3>
+      <div class="wtf-tagline">
+        <small>{{ site.tagline }} <br>by <a href="https://twitter.com/matt_kiser">@matt_kiser</a></small>
+        <br> <span class="site-updated">Site updated: <time datetime="{{ site.time | date_to_xmlschema }}">{{ site.time | date: "%-m/%-d/%Y %l:%M %p %Z" }}</time>
+        </span>
+   
+       </div>
 
+      {% unless page.isAmp %}
         <div class="wtf-search">
           <div class="outer-wrapper">
             <div class="input-wrapper">
@@ -41,9 +42,13 @@
             </div>
           </div>
         </div>
-      </header>
+      {% endunless %}
+    </header>
 
-      <main> 
+    <main> 
+      {% if page.isAmp %}
+        {{ content | extlinks }}
+      {% else %}
         <!-- ALGOLIA -->
         <div class="wtf-search-results">
           <div class="algolia__search-content js-algolia__search-content">
@@ -53,10 +58,13 @@
         </div>
 
         <div class="algolia__initial-content js-algolia__initial-content">
-          {{ content | extlinks }}</div>
+          {{ content | extlinks }}
+        </div>
         <!-- END ALGOLIA -->
-      </main>
+      {% endif %}
+    </main>
 
-      {% include foot.html %}
+    {% include foot.html %}
 
-     
+  </body>
+</html>
