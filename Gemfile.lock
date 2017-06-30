@@ -1,3 +1,12 @@
+GIT
+  remote: git://github.com/mark-monteiro/amp-jekyll.git
+  revision: 1e8c1594887d187901288fc9297b52e2ad13b6e8
+  specs:
+    amp-jekyll (1.0.1)
+      fastimage (>= 1.8.0)
+      jekyll (~> 3.0)
+      nokogiri (>= 1.6.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -18,10 +27,6 @@ GEM
       json (~> 1.8)
       nokogiri (~> 1.6)
       verbal_expressions (~> 0.1.5)
-    amp-jekyll (1.0.1)
-      fastimage (>= 1.8.0)
-      jekyll (~> 3.0)
-      nokogiri (>= 1.6.0)
     appraisal (2.1.0)
       bundler
       rake
@@ -227,7 +232,7 @@ PLATFORMS
 
 DEPENDENCIES
   algoliasearch-jekyll
-  amp-jekyll
+  amp-jekyll!
   github-pages (= 140)
   jekyll-extlinks
   jekyll-paginate
@@ -235,6 +240,7 @@ DEPENDENCIES
   jekyll-sitemap
   jekyll-twitter-plugin
   jekyll_pages_api
+  json
 
 BUNDLED WITH
-   1.15.0
+   1.15.1
