@@ -2,15 +2,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1.0">
   <meta property="fb:pages" content="1415262761838827" />
-  
+
   <link rel="shortcut icon" href="{{ site.baseurl }}/public/favicon.ico" type="image/x-icon">
   <link rel="icon" href="{{ site.baseurl }}/public/favicon.ico" type="image/x-icon">
   <link rel="alternate" type="application/atom+xml" title="Atom - {{ site.title }}" href="{{ site.baseurl }}/atom.xml">
   <link rel='alternate' type='application/rss+xml' title='RSS - {{ site.title }}' href="{{ site.baseurl }}/rss.xml">
   <link href="https://fonts.googleapis.com/css?family=Oswald|Poppins" rel="stylesheet">
-  <!-- <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ site.baseurl }}/public/apple-touch-icon-precomposed.png"> -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ site.baseurl }}/public/apple-touch-icon-precomposed.png">
   
-  {% seo %}
+  {% include seo.html %}
+  {% include push.html %}
+  {% include post-modified.html %}
 
   {% if page.isAmp %}
     <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
@@ -37,25 +39,7 @@
     {% endif %}
     -->    
     
-    <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-    ga('create', 'UA-91051784-1', 'auto');
-    ga('send', 'pageview');
-    </script>
-    <script>
-    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-    document,'script','https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '181350185699344'); // Insert your pixel ID here.
-    fbq('track', 'PageView');
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=181350185699344&ev=PageView&noscript=1"
-    /></noscript>
+    {% include ga.html %}
+    {% include fb.html %}
   {% endif %}
 </head>

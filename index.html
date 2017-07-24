@@ -1,19 +1,13 @@
 ---
-layout: default
 title: What The Fuck Just Happened Today?
+layout: default
 image:
-  twitter: /public/wtfjht-t.jpg
-  facebook: /public/wtfjht-f.jpg
+  twitter: "/public/wtfjht-t.jpg"
+  facebook: "/public/wtfjht-f.jpg"
 ---
 
- <!-- Pledge Drive -->
-<!--  {% include pledge3.html %}
- -->
 <!-- MailChimp -->
 {% include email.html %}
-
-<!--End mc_embed_signup-->
-
 
 <div class="posts">
   {% for post in site.posts limit:7 %}
@@ -24,14 +18,14 @@ image:
       <span class="post-small">{{ post.description }}</span></a>
     </h2>
     
-   <time datetime="{{ post.last_modified | date_to_xmlschema }}" class="post-date">
+   <time datetime="{% if post.last_modified %}{{ post.last_modified | date_to_xmlschema }}{% endif %}" class="post-date">
     {{ post.date | date: "%-m/%-d/%Y" }} 
     <br>
     <small>
-      <em>Updated: {{ post.last_modified | time_zone: 'America/Los_Angeles' | date: "%-m/%-d/%Y %l:%M %p %Z"}}</em>
+      <em>Updated: {{ post.last_modified | date: "%-m/%-d/%Y %l:%M %p %Z"}}</em>
     </small><br>
     <small>
-     <a href="https://github.com/mkiser/WTFJHT/edit/master/{{ page.path }}" target="_blank">Help improve this article</a> |  <a href="https://github.com/mkiser/WTFJHT/commits/master/{{ page.path }}" target="_blank">See revision history</a>
+     <i class="fa fa-pencil" aria-hidden="true"></i> <a href="https://github.com/mkiser/WTFJHT/edit/master/{{ post.path }}" target="_blank">Help improve this article</a> |  <a href="https://github.com/mkiser/WTFJHT/commits/master/{{ post.path }}" target="_blank">See revision history</a>
     </small>
   </time>
 

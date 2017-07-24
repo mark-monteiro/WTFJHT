@@ -1,17 +1,18 @@
 ---
+title: Archives By Year
 layout: default
-title: What The Fuck Just Happened Today? Archive
 image:
-  twitter: /public/wtfjht-t.jpg
-  facebook: /public/wtfjht-f.jpg
+  twitter: "/public/wtfjht-t.jpg"
+  facebook: "/public/wtfjht-f.jpg"
 ---
 
-<!-- MailChimp -->
-{% include email.html %}
+<h1 style="text-align: center;">Archive of posts from {{ page.date | date: "%Y" }}</h1>
+
+{% include archive-nav.html %}
 
 <div class="posts">
   <article class="post">
-  {% for post in site.posts %}
+  {% for post in page.posts reversed %}
     <h2 class="post-title">
       <a href="{{ site.baseurl }}{{ post.url }}">
         {{ post.title }}:
