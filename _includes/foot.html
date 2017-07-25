@@ -9,8 +9,12 @@
     <li><a href="{{ site.baseurl }}/archive">Archive</a></li>
   </ul>
 
-          <p xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">
-            <br><small>What The Fuck Just Happened Today? by <a xmlns:cc="http://creativecommons.org/ns#" href="https://whatthefuckjusthappenedtoday.com/about/" property="cc:attributionName" rel="cc:attributionURL">Matt Kiser</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</small>
+          <p {% unless page.isAmp %} xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type" {% endunless %}>
+            <br>
+            <small>What The Fuck Just Happened Today? by
+            <a {% unless page.isAmp %} xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName" rel="cc:attributionURL" {% endunless %} href="https://whatthefuckjusthappenedtoday.com/about/">Matt Kiser</a>
+            is licensed under a
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</small>
           </p>
       </footer>
 
@@ -59,10 +63,11 @@
   });
   </script>
   {% include clickEvent.html %}
+  {% include intercom.html %}
 {% endunless %}
 
   {% if page.layout == 'post' %}
     <!-- {% include h.html %} -->
     {% include anchors.html %}
   {% endif %}
-  {% include intercom.html %}
+  
