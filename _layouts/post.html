@@ -2,8 +2,8 @@
 layout: default
 ---
 
+<!-- MailChimp -->
 {% unless page.isAmp %}
-  <!-- MailChimp -->
   {% include email.html %}
 {% endunless %}
 
@@ -32,7 +32,9 @@ layout: default
   </p>
 
   <!-- Pledge Drive -->
-  {% include pledge.html %}
+  {% unless page.isAmp %}
+    {% include pledge.html %}
+  {% endunless %}
 
   {% include social.html %}
 
