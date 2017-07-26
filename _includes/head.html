@@ -20,6 +20,7 @@
       {{ styles | scssify | remove: "!important" }}
     </style>
     <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-twitter" src="https://cdn.ampproject.org/v0/amp-twitter-0.1.js"></script>
   {% else %}  
     <link rel="stylesheet" href="{{ site.baseurl }}/styles.css">
     <link rel="stylesheet" href="{{ site.baseurl }}/public/css/algolia.css">
